@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "Yekgirtu Kurdish Alphabet Converter",
-  "description": "Kurdish alphabet conversion from arabic to latin to either Yekgirtu or Bedirxani alphabets",
-  "version": "1.3.4",
+  "description": "Kurdish alphabet conversion between Arabic, Yekgirtú and Bedirxanî alphabets",
+  "version": "2.0",
   "permissions": [
     "activeTab", "http://*/*", "https://*/*"
   ],
@@ -14,7 +14,7 @@
    "content_scripts": [
     {
       "matches": ["http://*/*","https://*/*"],
-      "js": ["convertYek.js","convertBedr.js"]
+      "js": ["convertYek.js","convertBedr.js", "convertBtoY.js"]
     }
   ],
   "icons":

@@ -12,7 +12,7 @@ function convertBedirxani() {
   
       if(node.textContent.trim().length > 0){
         parent.style.direction = 'ltr'
-        parent.style.fontFamily = 'helvetica, arial'
+        //parent.style.fontFamily = 'helvetica, arial'
         node.textContent = convB(node.nodeValue)
       }
   })

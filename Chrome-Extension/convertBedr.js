@@ -37,7 +37,8 @@ var sConvertLatin2ArabicB = new Array(
     '\'|’', 'ع',
     '\\u003F', '؟', //question mark
     '\,', '،',
-    '\;', '؛'
+    '\;', '؛',
+    'i', '', // Remove all i letters since they do dot exist in arabic alphabet
 );
 
 var sSuffixesB = new Array(
@@ -174,7 +175,7 @@ var sConvertDilanB = new Array(
 	'ذ', 'ڕ'
 );
 
-// Latin type Array
+// Latin type Array - Not used
 var sConvertLatinB = new Array(
     //typed, Hawar
     'ee', 'ê',
@@ -189,6 +190,7 @@ var sConvertLatinB = new Array(
     'Sh|SH', 'Ş'
 );
 
+// Not used
 var sNumbersB = new Array(
     '0', '٠',
     '1', '١',
@@ -202,7 +204,7 @@ var sNumbersB = new Array(
     '9', '٩'
 );
 
-//Arabic type Array
+//Arabic type Array - Not used
 var sKeyboardLayoutsB = new Array(
 //English keyboard, Rojhellat keyboard, Bakur keyboard, Bashur Keyboard
 
@@ -320,41 +322,52 @@ var sKeyboardLayoutsB = new Array(
 
 function convB(texten){
 	var s = texten;
-		//Arabic to Latin
             
-            // standardize Arabic before converting Arabic to Latin
-                for (i = 0; i < sConvertDilanB.length; i += 2){
-                    s = s.replace(new RegExp(sConvertDilanB[i], 'g'), sConvertDilanB[i + 1]);
-                }
+    // standardize Arabic before converting Arabic to Latin
+    for (i = 0; i < sConvertDilanB.length; i += 2){
+        s = s.replace(new RegExp(sConvertDilanB[i], 'g'), sConvertDilanB[i + 1]);
+    }
 
-                for (i = 0; i < sAliWebB.length; i += 2){
-                    s = s.replace(new RegExp(sAliWebB[i], 'g'), sAliWebB[i + 1]);
-                }
+    for (i = 0; i < sAliWebB.length; i += 2){
+        s = s.replace(new RegExp(sAliWebB[i], 'g'), sAliWebB[i + 1]);
+    }
 
-                for (i = 0; i < sConvertStandardiseB.length; i += 2){
-                    s = s.replace(new RegExp(sConvertStandardiseB[i], 'g'), sConvertStandardiseB[i + 1]);
-                }
+    for (i = 0; i < sConvertStandardiseB.length; i += 2){
+        s = s.replace(new RegExp(sConvertStandardiseB[i], 'g'), sConvertStandardiseB[i + 1]);
+    }
 
-            //main conversion
-                for (i = 0; i < sConvertArabic2LatinB.length; i += 2){
-                    s = s.replace(new RegExp(sConvertArabic2LatinB[i], 'gim'), sConvertArabic2LatinB[i + 1]);
-                }
+    //main conversion
+    for (i = 0; i < sConvertArabic2LatinB.length; i += 2){
+        s = s.replace(new RegExp(sConvertArabic2LatinB[i], 'gim'), sConvertArabic2LatinB[i + 1]);
+    }
 
-                s = s.replace(new RegExp('ll', 'gim'), 'Ľ').replace(new RegExp('rr', 'gim'), 'Ŕ'); //temporary conversion
+    s = s.replace(new RegExp('ll', 'gim'), 'Ľ').replace(new RegExp('rr', 'gim'), 'Ŕ'); //temporary conversion
 
-            //add extra i's for Kurmanci texts
-                for (i = 0; i < sOnsetIB.length; i += 2){
-						s = s.replace(new RegExp(sOnsetIB[i], 'gim'), sOnsetIB[i + 1]); //e.g. bra -> bira
-				}
+    //add extra i's for Kurmanci texts
+    for (i = 0; i < sOnsetIB.length; i += 2){
+            s = s.replace(new RegExp(sOnsetIB[i], 'gim'), sOnsetIB[i + 1]); //e.g. bra -> bira
+    }
 
-                s = s.replace(new RegExp('Ľ', 'gim'), 'll').replace(new RegExp('Ŕ', 'gim'), 'rr'); //temporary conversion
+    s = s.replace(new RegExp('Ľ', 'gim'), 'll').replace(new RegExp('Ŕ', 'gim'), 'rr'); //temporary conversion
 
-            //capitalise the first words of sentences
-                s = s.replace(new RegExp('(^|\r\n|[\\.\\u003F!] [^a-zêîûçş0-9\'’]*)([a-zêîûçş])', 'gm'), function (m, p1, p2) {
-                    for (i = 0; i < sCapitalLettersB.length; i += 2)
-                        p2.replace(sCapitalLettersB[i], sCapitalLettersB[i + 1]);
-                    return p1 + p2.toUpperCase();
-                });
+    //capitalise the first words of sentences
+    s = s.replace(new RegExp('(^|\r\n|[\\.\\u003F!] [^a-zêîûçş0-9\'’]*)([a-zêîûçş])', 'gm'), function (m, p1, p2) {
+        for (i = 0; i < sCapitalLettersB.length; i += 2)
+            p2.replace(sCapitalLettersB[i], sCapitalLettersB[i + 1]);
+        return p1 + p2.toUpperCase();
+    });
 
 	return s;
+}
+
+function convA(texten){
+    
+    let convertedText = texten;
+
+    //main conversion
+    for (i = 0; i < sConvertLatin2ArabicB.length; i += 2){
+        convertedText = convertedText.replace(new RegExp(sConvertLatin2ArabicB[i], 'gim'), sConvertLatin2ArabicB[i + 1]);
+    }
+
+	return convertedText;
 }

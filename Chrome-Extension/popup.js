@@ -1,16 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // Declare buttons
-    const yekgirtuButton = document.getElementById('convertToY')
-    const bedirxaniButton = document.getElementById('convertToB')
+    const ArabicToYekgirtuButton = document.getElementById('convertToY')
+    const ArabicToBedirxaniButton = document.getElementById('convertToB')
+    const BedirxaniToYekgirtuButton = document.getElementById('convertBtoY')
+    const BedirxaniToArabicButton = document.getElementById('convertBtoA')
 
     // Execute scripts from clicks on btns
-    yekgirtuButton.onclick = () => { 
+    ArabicToYekgirtuButton.onclick = () => { 
         executeScript('scriptY.js')
     }
 
-    bedirxaniButton.onclick = () => { 
+    ArabicToBedirxaniButton.onclick = () => { 
         executeScript('scriptB.js')
+    }
+
+    BedirxaniToYekgirtuButton.onclick = () => { 
+        executeScript('scriptBtoY.js')
+    }
+
+    BedirxaniToArabicButton.onclick = () => { 
+        executeScript('scriptBtoA.js')
     }
 
     // Add listener for keyboard shorcuts
