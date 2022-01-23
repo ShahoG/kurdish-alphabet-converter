@@ -13,7 +13,7 @@ function convertBedirxaniToYekgirtu() {
       if(node.textContent.trim().length > 0){
         parent.style.direction = 'ltr'
         //parent.style.fontFamily = 'helvetica, arial'
-        node.textContent = convB(node.nodeValue)
+        node.textContent = convertBtoY(node.nodeValue)
       }
   })
 }
