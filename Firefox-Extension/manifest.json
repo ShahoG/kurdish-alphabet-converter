@@ -7,9 +7,9 @@
       "activeTab", "http://*/*", "https://*/*"
     ],
     "icons": {
-      "128": "logo_large.png",
-      "16": "logo.png",
-      "48": "logo.png"
+      "128": "icons/logo_large.png",
+      "16": "icons/logo.png",
+      "48": "icons/logo.png"
     },
     "browser_action": {
         "default_title": "Change text on this page",
