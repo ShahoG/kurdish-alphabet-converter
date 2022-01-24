@@ -1,14 +1,14 @@
 {
   "manifest_version": 2,
-  "name": "Yekgirtu Kurdish Alphabet Converter",
+  "name": "Kurdish Alphabet Converter",
   "description": "Kurdish alphabet conversion between Arabic, Yekgirtú and Bedirxanî alphabets",
-  "version": "2.1",
+  "version": "2.2",
   "permissions": [
     "activeTab", "http://*/*", "https://*/*"
   ],
   "browser_action": {
       "default_title": "Change text on this page",
-      "default_icon": "yn_logo.png",
+      "default_icon": "logo.png",
       "default_popup": "popup.html"
   },
    "content_scripts": [
@@ -19,9 +19,9 @@
   ],
   "icons":
    {
-      "128": "yn_logo_large.png",
-      "16": "yn_logo.png",
-      "48": "yn_logo.png"
+      "128": "logo_large.png",
+      "16": "logo.png",
+      "48": "logo.png"
    },
    "commands": {
     "_execute_browser_action": {

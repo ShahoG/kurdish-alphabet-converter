@@ -29,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
             executeScript('scriptY.js')
         }else if(e.code === 'KeyB'){
             executeScript('scriptB.js')
+        }else if(e.code === 'KeyU'){
+            executeScript('scriptBtoY.js')
+        }else if(e.code === 'KeyA'){
+            executeScript('scriptBtoA.js')
         }
     })  
     
