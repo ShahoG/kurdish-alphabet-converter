@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Kurdish Alphabet Converter",
   "description": "Kurdish alphabet conversion between Arabic, Yekgirtú and Bedirxanî alphabets",
-  "version": "2.2",
+  "version": "2.3",
   "permissions": [
     "activeTab", "http://*/*", "https://*/*"
   ],
