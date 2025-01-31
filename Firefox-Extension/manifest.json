@@ -1,33 +1,35 @@
 {
-    "manifest_version": 2,
-    "name": "Kurdish Alphabet Converter",
-    "description": "Kurdish alphabet conversion between Arabic, Yekgirtú and Bedirxanî alphabets",
-    "version": "2.3",
-    "permissions": [
-      "activeTab", "http://*/*", "https://*/*"
-    ],
-    "icons": {
-      "128": "icons/logo_large.png",
-      "16": "icons/logo.png",
-      "48": "icons/logo.png"
-    },
-    "browser_action": {
-        "default_title": "Change text on this page",
-        "default_icon": "icons/logo.png",
-        "default_popup": "popup.html"   
-    },
-    "content_scripts": [
-      {
-        "matches": ["http://*/*","https://*/*"],
-        "js": ["popup.js", "convertYek.js", "convertBedr.js", "convertBtoY.js"]
+  "manifest_version": 3,
+  "name": "Kurdish Alphabet Converter",
+  "description": "Kurdish alphabet conversion between Arabic, Yekgirtú, and Bedirxanî alphabets",
+  "version": "2.3",
+  "permissions": [],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "action": {
+    "default_title": "Change text on this page",
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["convertYek.js", "convertBedr.js", "convertBtoY.js"]
+    }
+  ],
+  "icons": {
+    "128": "logo_large.png",
+    "16": "logo.png",
+    "48": "logo.png"
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
       }
-    ],
-    "commands": {
-      "_execute_browser_action": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+Y",
-          "mac": "Command+Shift+Y"
-        }
-      }
-    }  
+    }
   }
+}
