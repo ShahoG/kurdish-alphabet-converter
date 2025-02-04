@@ -3,7 +3,10 @@
   "name": "Kurdish Alphabet Converter",
   "description": "Kurdish alphabet conversion between Arabic, Yekgirtú, and Bedirxanî alphabets",
   "version": "2.3",
-  "permissions": [],
+  "permissions": [
+    "scripting",
+    "activeTab"
+  ],
   "host_permissions": [
     "http://*/*",
     "https://*/*"

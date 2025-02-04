@@ -41,8 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Execute the correct script
-  let executeScript = (type) => {
-    chrome.tabs.executeScript({ file: type });
+  let executeScript = (file) => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.scripting.executeScript({
+        target: { tabId: tabs[0].id },
+        files: [file],
+      });
+    });
     window.close();
   };
 });
